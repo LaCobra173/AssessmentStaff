@@ -1,0 +1,80 @@
+﻿@model IEnumerable<AssessmentStaff.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutA.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<body class="image">
+
+    <style>
+        h2, p {
+            padding-left: 20px;
+        }
+
+        .image {
+            background-image: url(../../Content/Images/ICL.jpg);
+            background-size: cover; 
+            height: 100%;
+        }
+
+        .wordsise {
+            font-family: 'Times New Roman';
+            font-size: 22px;
+            color: black;
+            background-color: white;
+            opacity: 0.82;
+            color: black; 
+        }
+
+    </style>
+
+    <h2>Список сотрудников</h2>
+
+    <p class="d">
+        @Html.ActionLink("Добавить сотрудника", "Create", new object{ }, new { @class = "btn btn-default ", @style = "color: black"})
+    </p>
+
+    <table class="table wordsise" >
+        <tr>
+            <th >
+                Фамилия
+            </th>
+
+            <th>
+                Имя
+            </th>
+            <th>
+                Отчество
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patronymic)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Редактировать", "Edit", new { id = item.IDUser }, new { @class = "btn btn-primary "}) 
+                    @Html.ActionLink("Информация", "Details", new { id = item.IDUser }, new { @class = "btn btn-warning "}) 
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.IDUser }, new { @class = "btn btn-danger"})
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

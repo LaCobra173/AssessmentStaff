@@ -1,0 +1,139 @@
+﻿@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutA.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <!-- подключаем файлы Bootstrap -->
+    <script src='@Url.Content("~/Scripts/bootstrap.min.js")'></script>
+</head>
+
+<body class="image">
+
+    <style>
+        .form-horizontal .heading {
+            font-size: 30px;
+            font-weight: 700;
+            padding: 12px;
+        }
+
+        .form form {
+            margin-left: 42%;
+            margin-top: 14%;
+            width: 250px;
+        }
+
+        .error {
+            color: red;
+            font-style: italic;
+            margin-left: 15px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .spawn {
+            font-size: 25px;
+            font-weight: 700;
+            padding-left: 1%;
+        }
+
+        .image {
+            background-image: url(../../Content/Images/ICL.jpg);
+            background-size: cover;
+            height: 100%;
+        }
+
+        .sizename {
+            font-size: 20px;
+        }
+
+        .padtop {
+            padding-top: 50px;
+        }
+    </style>
+
+    @using (@Html.BeginForm())
+    {
+
+        <!-- используем стили Bootstrap -->
+        <div>
+            <form class="form-horizontal" role="form" method="POST">
+                <span class="spawn ">Добавление нового сотрудника</span>
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label sizename padtop">Фамилия</label>
+                        <div class="sizefield padtop">
+                            @Html.TextBox("surname")
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label sizename">Имя</label>
+                        <div class="sizefield">
+                            @Html.TextBox("name")
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label sizename">Отчество</label>
+                        <div class="sizefield">
+                            @Html.TextBox("patronymic")
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label sizename">Дата рождения</label>
+                        <div class="sizefield">
+                            @Html.TextBox("bornDate")
+                        </div>
+                    </div>
+                    <div class="error">
+                        @ViewBag.ErrorDate
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label sizename">Роль</label>
+                        <div class="sizefield">
+                            @Html.TextBox("roleEnum")
+                        </div>
+                    </div>
+                    <div class="error">
+                        @ViewBag.ErrorRole
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label sizename">Логин</label>
+                        <div class="sizefield">
+                            @Html.TextBox("login")
+                        </div>
+                    </div>
+                    <div class="error">
+                        @ViewBag.ErrorLogin
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label sizename">Пароль</label>
+                        <div class="sizefield">
+                            @Html.Password("firstpassword")
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label sizename">Повторите пароль</label>
+                        <div class="sizefield">
+                            @Html.Password("secondpassword")
+                        </div>
+                    </div>
+                    <div class="error">
+                        @ViewBag.Error
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success btn-lg">Создать</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div><!-- form  -->
+    }
+</body>
+</html>

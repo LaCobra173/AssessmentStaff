@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Http404";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- подключаем файлы Bootstrap -->
+    <script src='@Url.Content("~/Scripts/bootstrap.min.js")'></script>
+</head>
+<body>
+
+    <style>
+        h2, p {
+            padding-left: 20px;
+        }
+
+        .image {
+            background-image: url(../../Content/Images/ICL.jpg);
+            background-size: cover;
+            height: 500px;
+        }
+
+        .wordsise {
+            font-family: 'Times New Roman';
+            font-size: 22px;
+            color: black;
+        }
+    </style>
+
+    <h2 style="font-size:26px;"><b>Ошибка 404</b></h2>
+    <p class="wordsise">Страница не найдена</p>
+    <p>
+        @Html.ActionLink("На главную страницу", "index", "Home", new object { }, new { @class = "btn btn-default ", @style = "color: black" })
+    </p>
+    
+</body>
+</html>

@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "AuthView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <script src='@Url.Content("~/Scripts/bootstrap.min.js")'></script>
+</head>
+
+<body class="image">
+
+    <style>
+
+        .form-horizontal .heading {
+            font-size: 30px;
+            font-weight: 700;
+            padding: 12px;
+        }
+
+        .form form {
+            margin-left: 42%;
+            margin-top: 14%;
+            width: 250px;
+        }
+
+        .error {
+            color: red;
+            font-style: italic;
+            margin-left: 35%;
+            padding-bottom: 15px;
+        }
+
+        .spawn {
+            padding-top: 200px;
+            margin-left: 42.5%;
+            font-size: 33.5px;
+            font-weight: 700;
+        }
+
+        .spawnlog {
+            margin-left: 42.5%;
+            margin-top: 3%;
+            width: 250px;
+            font-size: 20px;
+        }
+
+        .logpas {
+            margin-left: 42.5%;
+            font-size: 20px;
+        }
+
+        .button {
+            margin-left: 48%; 
+        }
+
+        .image {
+            background-image: url(../../Content/Images/ICL.jpg);
+            background-size: cover; 
+            height: 100%;
+        }
+    </style>
+
+    @using (@Html.BeginForm())
+    {
+        <!-- используем стили Bootstrap -->
+        <div>
+            <form class="form-horizontal" role="form" method="POST">
+                <div class="spawn">АВТОРИЗАЦИЯ</div>
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="spawnlog">Логин</label>
+                        <div class="logpas">
+                            @Html.TextBox("login")
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="logpas">Пароль</label>
+                        <div class="logpas">
+                            @Html.Password("password")
+                        </div>
+                    </div>
+                    <div class="error">
+                        @ViewBag.Error
+                    </div>
+                    <div class="form-group">
+                        <div class="button">
+                            <button type="submit" class="btn btn-success btn-lg">Войти</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div><!-- form  -->
+    }
+    </body>
+</html>

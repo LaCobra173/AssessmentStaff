@@ -1,0 +1,121 @@
+﻿@model AssessmentStaff.Models.User
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutA.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- подключаем файлы Bootstrap -->
+    <script src='@Url.Content("~/Scripts/bootstrap.min.js")'></script>
+</head>
+
+
+<body class="image">
+
+    <style>
+
+        h2, p {
+            padding-left: 20px;
+        }
+
+        .image {
+            background-image: url(../../Content/Images/ICL.jpg);
+            background-size: cover;
+            height: 100%;
+        }
+
+        .sizename {
+            font-size: 20px;
+        }
+
+        .wordsise {
+            font-family: 'Times New Roman';
+            font-size: 18px;
+            color: black;
+            background-color: white;
+            opacity: 0.82;
+            margin-left: 5px;
+        }
+    </style>
+
+    <h2>Вы точно хотите удалить?</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal wordsise">
+            <dt>
+                ID сотрудника
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IDUser)
+            </dd>
+            <dt>
+                Фамилия
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Surname)
+            </dd>
+
+            <dt>
+                Имя
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                Отчество
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Patronymic)
+            </dd>
+
+            <dt>
+                Дата рождения
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BornDate)
+            </dd>
+
+            <dt>
+                Роль
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Role)
+            </dd>
+
+            <dt>
+                Логин
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Login)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Удалить" class="btn btn-danger" /> 
+                @Html.ActionLink("Назад к списку", "Index", new object { },  new { @class = "btn btn-default ", @style = "color: black" })
+            </div>
+        }
+    </div>
+</body>
+</html>
